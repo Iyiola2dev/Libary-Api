@@ -30,18 +30,37 @@ export const addBook = async (req, res)=>{
     }
 };
 
+//This is for Updating books to to the webpage
 export const updateBook = async ( req, res) =>{
     try{
         const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, {new: true})
         if(!updatedBook){
             res.status(404).json({
-                message: "Books Not Found"
+                message: "Book Not Found"
             })
         }
     res.status(200).json({
         message:"Books updated successfully"
     })
     }catch (error){
+        res.status(500).json({ message: 'Failed to update book' });
+    }
+};
 
+// This is to delete books 
+
+export const deleteBook = async (req, res) =>{
+    try{
+        const deletedBook = await Book.findByIdAndDelete(req.params.id);
+        if(!deletedBook){
+            res.status(404).json({
+                message: "Book Not Found"
+            })
+        }
+        res.status(200).json({
+        message:"Books deleted successfully"
+    })
+    }catch(error){
+        res.status(500).json({ message: 'Failed to delete book' });
     }
 }
