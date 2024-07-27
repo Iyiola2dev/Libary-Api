@@ -9,11 +9,10 @@ dotenv.config()
 await dbConnection()
 
 const library = express();
-const Port = 3005;
-
+const Port = 3002;
 library.use(express.json())
 library.use(cors())
-library.use("api/v1/user", userRouter)
+library.use("/api/v1/user", userRouter)
 
 library.listen(Port, ()=>{
     console.log(`Server is running on http://localhost:${Port}`);
