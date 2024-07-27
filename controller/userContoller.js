@@ -7,17 +7,10 @@ dotenv.config();
 
 export const createUser = async (req, res) => {
 
-  console.log('Route hit: /:role?/register'); // Add logging to verify route hit
-
   try {
     const { userName, password } = req.body;
     const { role } = req.params;
     const user = new User(req.body);
-
-
-
-    console.log('Request Body:', req.body);
-    console.log('Role:', role);
 
     if (!userName || !password) {
       return res.status(400).json({ message: "Username and password are required" });

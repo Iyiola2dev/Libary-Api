@@ -1,4 +1,7 @@
 import Book from "../model/bookSchema.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const getAllBook = async (req, res) =>{
     try{
