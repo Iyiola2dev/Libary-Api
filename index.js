@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors"
 import dbConnection from "./db/conn.js";
 import userRouter from "./routes/userRouter.js";
+import bookRouter from "./routes/bookRouter.js"
 
 
 dotenv.config()
@@ -13,7 +14,7 @@ const Port = 3002;
 library.use(express.json())
 library.use(cors())
 library.use("/api/v1/user", userRouter)
-// library.use("/api/v1/book", )
+library.use("/api/v1/book", bookRouter)
 // library.use("/api/v1/book", )
 
 library.listen(Port, ()=>{

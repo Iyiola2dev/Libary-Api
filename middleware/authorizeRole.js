@@ -34,3 +34,4 @@ export const authorizeRole = (requiredRoles) => {
       return res.status(403).json({ message: 'Forbidden' });
     }
   };
+  
